@@ -1,0 +1,12 @@
+---
+- name: Exec linux command {{ item.cmd }}
+  shell: {{ item.cmd }} 2>/dev/null
+  register: cmd_output
+  ignore_errors: True
+  check_mode: yes
+
+- name: Regex {{ item.regex }} from output {{ item.cmd }}
+  shell: {{ item.cmd }} 2>/dev/null
+  register: regex_output
+  ignore_errors: True
+  check_mode: yes
