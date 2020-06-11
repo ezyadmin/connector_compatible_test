@@ -1,18 +1,17 @@
 ---
-# tasks file for connector_compatible_testing
-- hosts: localhost
-  connection: local
-  vars:
-    ez_config:
-      - 10.0.0.10
-      - 10.0.0.11
-  tasks:
-    - name: Main process for linix in ez_config --extra-var
-      include_tasks: process_run_linux.yml
-      loop: "{{ ez_config }}"
-      when: (ansible_os_family == "RedHat") or (ansible_os_family == "Redhat") or (ansible_os_family == "CentOS") or (ansible_os_family == "Debian")
+- debug: var=ez_config
 
-    - name: Main process for linix in ez_config --extra-var
-      include_tasks: process_run_windows.yml
+- name: Main process for linux
+  block:
+    - name: ez_config --extra-var
+      include_tasks: process_run_linux.yml
+     
       loop: "{{ ez_config }}"
-      when: ansible_os_family == "Windows"
+  when: (ansible_os_family == "RedHat") or (ansible_os_family == "Redhat") or (ansible_os_family == "CentOS") or (ansible_os_family == "Debian")
+
+# - name: Main process for windows
+#   block:
+#     - name: ez_config --extra-var
+#       include_tasks: process_run_windows.yml
+#       loop: "{{ ez_config }}"
+#   when: ansible_os_family == "Windows"
