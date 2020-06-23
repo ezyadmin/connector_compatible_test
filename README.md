@@ -4,7 +4,7 @@
 
 | key                | description                                     |
 | ------------------ | ------------------------------------------------|
-| list : [{          |                                                 |
+| list :             |                                                 |
 |                    | [{                                              |
 |                    |     "conn_id" : "***{{ connector id }}***"      |
 |                    |     "module" : "***{{ connector module }}***"   |
