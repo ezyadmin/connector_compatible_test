@@ -1,12 +1,13 @@
-# Ansible Playbook DirectAdmin for EzyAdmin Connectors
+# Ansible Playbook Compatible Testing for EzyAdmin Connectors
 
 ## Configuration
 
 | key                | description                                     |
 | ------------------ | ------------------------------------------------|
-| ez_connector       | connector module name                           |
-| ez_config          | Array of object congig                          |
+| list : [{          |                                                 |
 |                    | [{                                              |
+|                    |     "conn_id" : "***{{ connector id }}***"      |
+|                    |     "module" : "***{{ connector module }}***"   |
 |                    |     "cmd" : "***{{ command_line }}***"          |
 |                    |     "regex" : "***{{ regular expression }}***"  |
 |                    | }]                                              |

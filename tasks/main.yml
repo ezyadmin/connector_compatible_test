@@ -1,12 +1,12 @@
 ---
-- debug: var=ez_config
+- debug: var=list
 
 - name: Main process for linux
   block:
     - name: ez_config --extra-var
       include_tasks: process_run_linux.yml
      
-      loop: "{{ ez_config }}"
+      loop: "{{ list }}"
   when: (ansible_os_family == "RedHat") or (ansible_os_family == "Redhat") or (ansible_os_family == "CentOS") or (ansible_os_family == "Debian")
 
 # - name: Main process for windows
