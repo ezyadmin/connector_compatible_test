@@ -1,12 +1,29 @@
 ---
-- name: Exec win_command {{ item.cmd }}
+- name: Exec windows command {{ item.cmd }}
   win_command: {{ item.cmd }} 2>/dev/null
   register: cmd_output
   ignore_errors: True
-  check_mode: yes
+  #check_mode: yes
 
-- name: Regex {{ item.regex }} from output {{ item.cmd }}
-  shell: {{ item.cmd }} 2>/dev/null
-  register: regex_output
-  ignore_errors: True
-  check_mode: yes
+- set_fact:
+    regexp_pattern: "{{ item.regex }}"
+
+- set_fact:
+    # regexp: '{{ item.regex }}'
+    regexOutput: "{{ cmd_output.stdout | regex_search(item.regex) }}"
+
+- debug:
+    msg : "regexOutput = {{ regexOutput }}"
+
+- set_fact:
+    lOutput : {
+      "conn_id" : "{{ item.conn_id }}",
+      "module" : "{{ item.module }}",
+      "cmd" : "{{ item.cmd }}",
+      "regex" : "{{ item.regex }}",
+      "cmd_output" : "{{ cmd_output.stdout }}",
+      "regex_output" : "{{ regexOutput }}",
+    }
+
+- set_fact:
+    ezOutput : "{{ezOutput}} + [{{lOutput}}]"
