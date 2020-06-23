@@ -27,3 +27,6 @@
 
 - set_fact:
     ezOutput : "{{ezOutput}} + [{{lOutput}}]"
+
+- debug:
+    msg: "===ezOutput>>>{{ ezOutput }}<<<ezOutput==="
