@@ -14,6 +14,5 @@
 
     - name: Final output
       debug:
-        msg: '{{ ezOutput }}'
-
+        msg: "===ezOutput>>>{{ ezOutput }}<<<ezOutput==="
 # ansible-playbook run.yml -i tests/inventory -vv --extra-vars='{"ez_config": [{"cmd": "whoami","regex": "(^[a-zA-Z0-9_]+$)"},{"cmd": "cat /etc/*release","regex": "DISTRIB_ID=(\\S+)"}]}'
