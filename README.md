@@ -9,5 +9,6 @@
 |                    |     "conn_id" : "***{{ connector id }}***"      |
 |                    |     "module" : "***{{ connector module }}***"   |
 |                    |     "cmd" : "***{{ command_line }}***"          |
+|                    |     "err_msg" : "***{{ error  message  }}***"   |
 |                    |     "regex" : "***{{ regular expression }}***"  |
 |                    | }]                                              |
