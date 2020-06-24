@@ -23,7 +23,7 @@
       "regex" : "{{ item.regex }}",
       "cmd_output" : "{{ cmd_output.stdout }}",
       "regex_output" : "{{ regexOutput }}",
-      "err_msg" : "{{ item.err_msg }}",
+      "err-msg" : "{{ item.err-msg }}"
     }
 
 - set_fact:
