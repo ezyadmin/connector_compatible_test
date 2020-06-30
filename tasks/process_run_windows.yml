@@ -10,7 +10,7 @@
 
 - set_fact:
     # regexp: '{{ item.regex }}'
-    regexOutput: "{{ cmd_output.stdout | regex_search(item.regex) }}"
+    regexOutput: "{{ cmd_output.stdout | regex_search(item.regex, multiline=True, ignorecase=True) }}"
 
 - debug:
     msg : "regexOutput = {{ regexOutput }}"
